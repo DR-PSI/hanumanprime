@@ -3,7 +3,6 @@ export async function POST(request) {
   try {
     const data = await request.json();
 
-    // Parse numeric values
     const parseNum = (val) => {
       if (!val) return null;
       const n = parseFloat(String(val).replace(/[^\d.-]/g, ''));
@@ -37,24 +36,4 @@ export async function POST(request) {
     );
 
     if (!response.ok) {
-      const error = await response.text();
-      throw new Error(`Supabase error: ${error}`);
-    }
-
-    return Response.json({
-      success: true,
-      message: 'Data saved',
-      timestamp: new Date().toISOString()
-    });
-
-  } catch (error) {
-    return Response.json({
-      success: false,
-      error: error.message
-    }, { status: 400 });
-  }
-}
-
-export async function GET() {
-  return Response.json({ status: 'ok', message: 'BMS API ready' });
-}
+      const error = awa
