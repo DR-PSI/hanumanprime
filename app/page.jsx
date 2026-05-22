@@ -1,4 +1,5 @@
-// Supabase connected
+
+"use client"; // v2
 
 export async function POST(request) {
   try {
